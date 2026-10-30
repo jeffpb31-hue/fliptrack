@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: fliptrack
+    env: python
+    plan: starter
+    buildCommand: ""
+    startCommand: python3 app.py
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: FLIPTRACK_DB
+        value: /data/fliptrack.db
+    disk:
+      name: fliptrack-data
+      mountPath: /data
+      sizeGB: 1
